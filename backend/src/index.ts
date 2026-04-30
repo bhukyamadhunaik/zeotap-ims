@@ -143,7 +143,7 @@ app.get('/api/feed', (req, res) => {
   const subscriber = redis.duplicate();
   subscriber.connect().then(() => {
     subscriber.subscribe('work_items_updates', (message) => {
-      res.write(\`data: \${message}\\n\\n\`);
+      res.write(`data: ${message}\n\n`);
     });
   });
 
@@ -162,7 +162,7 @@ const start = async () => {
     startWorker();
     
     app.listen(PORT, () => {
-      console.log(\`Backend server running on port \${PORT}\`);
+      console.log(`Backend server running on port ${PORT}`);
     });
   } catch (err) {
     console.error('Failed to start server', err);

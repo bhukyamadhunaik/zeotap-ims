@@ -19,8 +19,8 @@ const processQueue = async () => {
     const results = await multi.exec();
     
     const signals = results
-      .filter((res): res is string => res !== null)
-      .map(res => JSON.parse(res));
+      .filter((res) => res !== null)
+      .map(res => JSON.parse(res as any as string));
 
     if (signals.length > 0) {
       await processSignals(signals);
