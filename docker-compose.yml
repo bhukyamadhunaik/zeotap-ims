@@ -13,7 +13,7 @@ services:
       - DB_USER=postgres
       - DB_PASS=postgres
       - DB_NAME=ims
-      - REDIS_HOST=redis:6379
+      - REDIS_URL=redis://redis:6379
       - MONGO_URI=mongodb://mongo:27017
     restart: unless-stopped
 
